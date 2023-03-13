@@ -1,0 +1,668 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa&family=Phudu&family=Roboto:ital@0;1&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Changa', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.orbit-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    overflow: hidden;
+}
+
+.orbit-container h1 {
+    color: white;
+    text-align: center;
+}
+
+.sun {
+    position: absolute;
+    /* background-color: orange; */
+    top: calc(50% - 45px);
+    left: calc(50% - 45px);
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background-image: url('sun.png');
+    background-size: cover;
+    /* box-shadow: 0px 0px 30px 10px rgb(225, 144, 77); */
+    /* animation: sun-shadow 2s ease-in-out infinite; */
+    /* box-shadow: 0px 0px 20px 0px rgb(225, 144, 77); */
+}
+
+@keyframes sun-shadow {
+
+    0%,
+    100% {
+        box-shadow: 0px 0px 20px 5px rgb(225, 144, 77);
+    }
+
+    50% {
+        box-shadow: 0px 0px 30px 10px rgb(225, 144, 77);
+    }
+}
+
+/* MERCURY */
+.mercury-orbit {
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+    width: 150px;
+    height: 150px;
+    border: 2px black dashed;
+    border-radius: 100%;
+    animation: orbit 10s linear infinite;
+    z-index: 100;
+}
+
+.mercury-orbit-circle {
+    position: absolute;
+    top: 75px;
+    left: calc(0px - 15px);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    box-shadow: 0 0 15px rgba(177, 76, 79, 1);
+    /* background: rgb(61, 49, 59);
+    background: linear-gradient(90deg, rgba(61, 49, 59, 1) 0%, rgba(177, 76, 79, 1) 44%, rgba(233, 247, 250, 1) 100%); */
+    background-image: url('mercury.png');
+    background-size: cover;
+    cursor: pointer;
+    animation: orbit 10s linear infinite;
+}
+
+
+.mercury-label {
+    display: none;
+    color: white;
+    position: absolute;
+    top: -15px;
+}
+
+.mercury-orbit-circle:hover .mercury-label {
+    display: block;
+}
+
+
+.mercury-orbit:hover {
+    animation-play-state: paused;
+}
+
+.mercury-orbit:hover .mercury-label {
+    display: block;
+}
+
+/* VENUS */
+.venus-orbit {
+    position: absolute;
+    top: calc(50% - 125px);
+    left: calc(50% - 125px);
+    width: 250px;
+    height: 250px;
+    border: 2px black dashed;
+    border-radius: 100%;
+    z-index: 99;
+    animation: orbit 11s linear infinite;
+}
+
+.venus-orbit-circle {
+    position: absolute;
+    top: 125px;
+    left: calc(0px - 15px);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    box-shadow: 0 0 15px rgb(230, 154, 22);
+    /* background: rgb(230, 154, 22);
+    background: linear-gradient(90deg, rgba(230, 154, 22, 1) 0%, rgba(187, 35, 40, 1) 78%, rgba(233, 247, 250, 1) 100%); */
+    background-image: url('venus.png');
+    background-size: cover;
+    cursor: pointer;
+    animation: orbit 10s linear infinite;
+}
+
+.venus-label {
+    display: none;
+    color: white;
+    position: absolute;
+    top: -15px;
+}
+
+.venus-orbit-circle:hover .venus-label {
+    display: block;
+}
+
+.venus-orbit:hover {
+    animation-play-state: paused;
+}
+
+.venus-orbit:hover .venus-label {
+    display: block;
+}
+
+
+/* EARTH */
+.earth-orbit {
+    position: absolute;
+    /* top: 75px;
+    left: 75px; */
+    top: calc(50% - 175px);
+    left: calc(50% - 175px);
+    width: 350px;
+    height: 350px;
+    border: 2px black dashed;
+    border-radius: 100%;
+    z-index: 98;
+    animation: orbit 12s linear infinite;
+}
+
+.earth-orbit-circle {
+    position: absolute;
+    top: 175px;
+    left: calc(0px - 15px);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    box-shadow: 0 0 15px rgba(21, 46, 204, 1);
+    /* background: rgb(0, 116, 6);
+    background: linear-gradient(90deg, rgba(0, 116, 6, 1) 0%, rgba(21, 46, 204, 1) 67%, rgba(0, 116, 6, 1) 100%); */
+    background-image: url('earth.png');
+    background-size: cover;
+    cursor: pointer;
+    animation: orbit 10s linear infinite;
+}
+
+.earth-label {
+    display: none;
+    color: white;
+    position: absolute;
+    top: -15px;
+}
+
+.earth-orbit-circle:hover .earth-label {
+    display: block;
+}
+
+.earth-orbit:hover {
+    animation-play-state: paused;
+}
+
+.earth-orbit:hover .earth-label {
+    display: block;
+}
+
+/* Mars */
+.mars-orbit {
+    position: absolute;
+    /* top: 25px;
+    left: 25px; */
+    top: calc(50% - 225px);
+    left: calc(50% - 225px);
+    width: 450px;
+    height: 450px;
+    border: 2px black dashed;
+    border-radius: 100%;
+    z-index: 97;
+    animation: orbit 13s linear infinite;
+}
+
+.mars-orbit-circle {
+    position: absolute;
+    top: 225px;
+    left: calc(0px - 15px);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    box-shadow: 0 0 15px rgb(200, 148, 114);
+    /* background: rgb(200, 148, 114);
+    background: linear-gradient(90deg, rgba(200, 148, 114, 1) 32%, rgba(124, 107, 93, 1) 65%); */
+    background-image: url('mars.png');
+    background-size: cover;
+    cursor: pointer;
+    animation: orbit 10s linear infinite;
+}
+
+.mars-label {
+    display: none;
+    color: white;
+    position: absolute;
+    top: -15px;
+}
+
+.mars-orbit-circle:hover .mars-label {
+    display: block;
+}
+
+.mars-orbit:hover {
+    animation-play-state: paused;
+}
+
+.mars-orbit:hover .mars-label {
+    display: block;
+}
+
+/* Jupiter */
+.jupiter-orbit {
+    position: absolute;
+    top: calc(50% - 275px);
+    left: calc(50% - 275px);
+    width: 550px;
+    height: 550px;
+    border: 2px black dashed;
+    border-radius: 100%;
+    z-index: 96;
+    animation: orbit 14s linear infinite;
+}
+
+.jupiter-orbit-circle {
+    position: absolute;
+    top: 275px;
+    left: calc(0px - 15px);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    box-shadow: 0 0 15px rgb(200, 164, 103);
+    /* background: rgb(200, 164, 103);
+    background: linear-gradient(90deg, rgba(200, 164, 103, 1) 41%, rgba(242, 227, 195, 1) 51%, rgba(187, 134, 58, 1) 64%); */
+    background-image: url('jupiter.png');
+    background-size: cover;
+    cursor: pointer;
+    animation: orbit 10s linear infinite;
+}
+
+.jupiter-label {
+    display: none;
+    color: white;
+    position: absolute;
+    top: -15px;
+}
+
+.jupiter-orbit-circle:hover .jupiter-label {
+    display: block;
+}
+
+.jupiter-orbit:hover {
+    animation-play-state: paused;
+}
+
+.jupiter-orbit:hover .jupiter-label {
+    display: block;
+}
+
+/* Saturn */
+.saturn-orbit {
+    position: absolute;
+    top: calc(50% - 325px);
+    left: calc(50% - 325px);
+    width: 650px;
+    height: 650px;
+    border: 2px black dashed;
+    border-radius: 100%;
+    z-index: 95;
+    animation: orbit 15s linear infinite;
+}
+
+.saturn-orbit-circle {
+    position: absolute;
+    top: 325px;
+    left: calc(0px - 30px);
+    height: 60px;
+    width: 60px;
+    /* border-radius: 100%; */
+    /* box-shadow: 0 0 15px rgb(182, 166, 130); */
+    /* background: rgb(182, 166, 130);
+    background: linear-gradient(90deg, rgba(182, 166, 130, 1) 32%, rgba(182, 166, 130, 1) 50%); */
+    background-image: url('saturn2.png');
+    background-size: contain;
+    cursor: pointer;
+    animation: orbit 10s linear infinite;
+    
+}
+
+.saturn-label {
+    display: none;
+    color: white;
+    position: absolute;
+    top: -15px;
+}
+
+.saturn-orbit-circle:hover .saturn-label {
+    display: block;
+}
+
+.saturn-orbit:hover {
+    animation-play-state: paused;
+}
+
+.saturn-orbit:hover .saturn-label {
+    display: block;
+}
+
+/* Uranus */
+.uranus-orbit {
+    position: absolute;
+    top: calc(50% - 375px);
+    left: calc(50% - 375px);
+    width: 750px;
+    height: 750px;
+    /* border: 2px black dashed; */
+    border-radius: 100%;
+    z-index: 94;
+    animation: orbit 16s linear infinite;
+}
+
+.uranus-orbit-circle {
+    position: absolute;
+    top: 375px;
+    left: calc(0px - 30px);
+    height: 60px;
+    width: 60px;
+    /* border-radius: 100%;
+    box-shadow: 0 0 15px rgb(175, 229, 255); */
+    /* background: rgb(175, 229, 255);
+    background: linear-gradient(90deg, rgba(175, 229, 255, 1) 10%, rgba(89, 180, 238, 1) 18%); */
+    background-image: url('uranus.png');
+    background-size: contain;
+    
+    cursor: pointer;
+    animation: orbit 10s linear infinite;
+}
+
+.uranus-label {
+    display: none;
+    color: white;
+    position: absolute;
+    top: -15px;
+}
+
+.uranus-orbit-circle:hover .uranus-label {
+    display: block;
+}
+
+.uranus-orbit:hover {
+    animation-play-state: paused;
+}
+
+.uranus-orbit:hover .uranus-label {
+    display: block;
+}
+
+/* Neptune */
+.neptune-orbit {
+    position: absolute;
+    top: calc(50% - 425px);
+    left: calc(50% - 425px);
+    width: 850px;
+    height: 850px;
+    /* border: 2px black dashed; */
+    border-radius: 100%;
+    z-index: 93;
+    animation: orbit 17s linear infinite;
+}
+
+.neptune-orbit-circle {
+    position: absolute;
+    top: 425px;
+    left: calc(0px - 15px);
+    height: 30px;
+    width: 30px;
+    /* border: 2px solid #377aff; */
+    /* box-shadow: 0 0 15px #377aff; */
+    border-radius: 100%;
+    /* background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); */
+    background-image: url('mercury.png'); 
+    background-size: contain;
+    cursor: pointer;
+    animation: orbit 10s linear infinite;
+}
+
+.neptune-label {
+    display: none;
+    color: white;
+    position: absolute;
+    top: -15px;
+}
+
+.neptune-orbit-circle:hover .neptune-label {
+    display: block;
+}
+
+.neptune-orbit:hover {
+    animation-play-state: paused;
+}
+
+.neptune-orbit:hover .neptune-label {
+    display: block;
+}
+
+@keyframes orbit {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.planet-section {
+    background-color: #f7f7f7;
+    /* border-bottom: 2px solid black; */
+    /* box-shadow: 0 0 15px #ed4242; */
+    animation: shadow 2s ease-in-out infinite;
+}
+
+@keyframes shadow {
+    0%,100% {
+        box-shadow: none;
+    }
+    
+    50% {
+        box-shadow: 0 0 15px #ed4242;
+    }
+}
+
+.planet-section h1 {
+    color: black;
+    text-align: center;
+}
+
+.planet-section a {
+    border-radius: 10px;
+    background-color: purple;
+    color: white;
+    padding: 5px;
+    height: 40px;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.planet_heading {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.planet-section a:hover {
+    background-color: black;
+}
+
+.facts {
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* MERCURY SECTION */
+.mercury-section {
+    height: 100vh;
+}
+
+/* VENUS SECTION */
+.venus-section {
+    height: 100vh;
+}
+
+/* EARTH SECTION */
+.earth-section {
+    height: 100vh;
+}
+
+/* Mars SECTION */
+.mars-section {
+    height: 100vh;
+}
+
+/* Jupiter SECTION */
+.jupiter-section {
+    height: 100vh;
+}
+
+/* Saturn SECTION */
+.saturn-section {
+    height: 100vh;
+}
+
+/* Uranus SECTION */
+.uranus-section {
+    height: 100vh;
+}
+
+/* Neptune SECTION */
+.neptune-section {
+    height: 100vh;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.planet-img {
+    margin-left: 5px;
+    max-height: 50px;
+    /* transform: translateY(15px); */
+    animation: bounce 2s ease-in infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(5px);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+/* DRAWER SECTION */
+.menu {
+    transform: translateX(100px);
+    width: 200px;
+    height: 0px;
+    overflow: hidden;
+    z-index: 100;
+    background-color: chartreuse;
+    transition: height 0.5s;
+}
+
+#hamburger:checked~*.menu {
+    height: 100px;
+}
+
+label.hamburger {
+    display: block;
+    width: 40px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+input#hamburger {
+    display: none
+}
+
+.line {
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: #000;
+}
+
+.hamburger {
+    transform: rotate(0);
+    transform-origin: 50% 50%;
+    transition: transform 0.5s;
+}
+
+/* steps of 12 are optional, could also be 10, 13 etc */
+.line:nth-child(1) {
+    top: 12px;
+    transform: rotate(0);
+    transition: top 0.5s 1s, transform 0.5s 0.5s;
+}
+
+.line:nth-child(2) {
+    top: 24px;
+    transition: opacity 0.5s 0.9s;
+}
+
+.line:nth-child(3) {
+    top: 36px;
+    transform: rotate(0);
+    transition: top 0.5s 1s, transform 0.5s 0.5s;
+}
+
+/* translateY must be same as */
+#hamburger:checked+.hamburger .line:nth-child(1) {
+    top: 24px;
+    transform: rotate(-45deg);
+    transition: top 0.5s 0.5s, transform 0.5s 1s;
+}
+
+#hamburger:checked+.hamburger .line:nth-child(2) {
+    opacity: 0;
+    transition: opacity 0.5s 0.9s;
+}
+
+#hamburger:checked+.hamburger .line:nth-child(3) {
+    top: 24px;
+    transform: rotate(45deg);
+    transition: top 0.5s 0.5s, transform 0.5s 1s;
+}
+
+
+#hamburger:checked+.hamburger {
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+    transition: transform 0.5s;
+}
